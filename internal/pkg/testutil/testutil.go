@@ -3,7 +3,6 @@ package testutil
 import (
 	"fmt"
 	"image"
-	_ "image/png"
 	"os"
 	"strconv"
 	"strings"
@@ -16,11 +15,7 @@ import (
 )
 
 func LoadImg(t *testing.T, path string) image.Image {
-	f, err := os.Open(path)
-	require.NoError(t, err)
-	defer f.Close()
-
-	img, _, err := image.Decode(f)
+	img, err := imutil.Load(path)
 	require.NoError(t, err)
 
 	return img
