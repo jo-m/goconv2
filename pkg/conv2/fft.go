@@ -34,6 +34,11 @@ func cmplxToRealScale(f *mat.CDense) *mat.Dense {
 	return out
 }
 
+// FullFFT returns the 2-dimensional convolution of f and g.
+//
+// Implemented using a FFT.
+// It is equivalent to scipy.signal.convolve2d(f, g, mode="full", boundary="fill", fillvalue=0).
+// See https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.convolve2d.html.
 func FFull(f, g *mat.Dense) *mat.Dense {
 	// make sure f is always larger than g
 	if g.RawMatrix().Cols > f.RawMatrix().Cols {

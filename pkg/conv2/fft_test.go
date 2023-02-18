@@ -13,17 +13,25 @@ func Test_FFull(t *testing.T) {
 	out := FFull(patch, patch)
 	truth := testutil.LoadMat64Txt(t, "testdata/gen/conv-pp-full-fill.txt")
 	testutil.AssertMatEqual(t, truth, out)
+	truth = testutil.LoadMat64Txt(t, "testdata/gen/fftconv-pp-full.txt")
+	testutil.AssertMatEqual(t, truth, out)
 
 	out = FFull(img, img)
 	truth = testutil.LoadMat64Txt(t, "testdata/gen/conv-ii-full-fill.txt")
+	testutil.AssertMatEqual(t, truth, out)
+	truth = testutil.LoadMat64Txt(t, "testdata/gen/fftconv-ii-full.txt")
 	testutil.AssertMatEqual(t, truth, out)
 
 	out = FFull(img, patch)
 	truth = testutil.LoadMat64Txt(t, "testdata/gen/conv-ip-full-fill.txt")
 	testutil.AssertMatEqual(t, truth, out)
+	truth = testutil.LoadMat64Txt(t, "testdata/gen/fftconv-ip-full.txt")
+	testutil.AssertMatEqual(t, truth, out)
 
 	out = FFull(patch, img)
 	truth = testutil.LoadMat64Txt(t, "testdata/gen/conv-pi-full-fill.txt")
+	testutil.AssertMatEqual(t, truth, out)
+	truth = testutil.LoadMat64Txt(t, "testdata/gen/fftconv-pi-full.txt")
 	testutil.AssertMatEqual(t, truth, out)
 }
 

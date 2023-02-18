@@ -67,6 +67,11 @@ def main():
     dump_mat("gen/conv-pp-same-fill", signal.convolve2d(patch, patch, mode="same", boundary="fill", fillvalue=0))
     dump_mat("gen/conv-pp-same-wrap", signal.convolve2d(patch, patch, mode="same", boundary="wrap", fillvalue=0))
 
+    dump_mat("gen/fftconv-ip-full", signal.fftconvolve(img, patch, mode='full'))
+    dump_mat("gen/fftconv-pi-full", signal.fftconvolve(patch, img, mode='full'))
+    dump_mat("gen/fftconv-ii-full", signal.fftconvolve(img, img, mode='full'))
+    dump_mat("gen/fftconv-pp-full", signal.fftconvolve(patch, patch, mode='full'))
+
 
 if __name__ == "__main__":
     main()
