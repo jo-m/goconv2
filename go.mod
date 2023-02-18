@@ -1,6 +1,6 @@
 module github.com/jo-m/goconv2
 
-go 1.19
+go 1.20
 
 require (
 	github.com/davidkleiven/gosfft v1.0.6
@@ -18,7 +18,7 @@ require (
 	github.com/go-pdf/fpdf v0.6.0 // indirect
 	github.com/golang/freetype v0.0.0-20170609003504-e2365dfdc4a0 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
-	golang.org/x/image v0.0.0-20220902085622-e7cb96979f69 // indirect
-	golang.org/x/text v0.3.7 // indirect
+	golang.org/x/image v0.5.0 // indirect
+	golang.org/x/text v0.7.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
