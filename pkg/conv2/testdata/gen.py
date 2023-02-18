@@ -2,7 +2,7 @@
 
 """
 Generates ground truth images for the Golang tests,
-assuming that numpy/scipy is trustworthy.
+so that we can test our implementation against what numpy/scipy produces.
 
     pip install --upgrade opencv-python-headless scipy numpy
 """
