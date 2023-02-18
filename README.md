@@ -1,4 +1,4 @@
-# Goconv2 - Two-dimensional convolutions
+# Goconv2 - Two-dimensional convolutions in Go
 
 This implements various 2d convolutions in Go, useful for signal processing and computer vision.
 
