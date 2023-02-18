@@ -1,3 +1,4 @@
+// Package plot in an internal package that plots. Used for development and debugging.
 package plot
 
 import (
@@ -27,6 +28,7 @@ func (g GridMatrix) Y(r int) float64 { return float64(r) }
 // Z returns the function value corresponding to the (r, c) element in the underlying matrix
 func (g GridMatrix) Z(c, r int) float64 { return g.mat.At(r, c) }
 
+// Mat plots a matrix to an image file.
 func Mat(path string, mat mat.Matrix) {
 	plt := plot.New()
 	grid := GridMatrix{mat}
@@ -37,6 +39,7 @@ func Mat(path string, mat mat.Matrix) {
 	}
 }
 
+// CMat plots a complex matrix to an image file.
 func CMat(path string, cmat mat.CMatrix) {
 	di, dj := cmat.Dims()
 

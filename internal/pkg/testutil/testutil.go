@@ -1,3 +1,4 @@
+// Package testutil is an internal package which contains various utilities for loading and storing data.
 package testutil
 
 import (
@@ -14,6 +15,7 @@ import (
 	"gonum.org/v1/gonum/mat"
 )
 
+// LoadImg loads an image from a file and fails the test if it does not succeed.
 func LoadImg(t *testing.T, path string) image.Image {
 	img, err := imutil.Load(path)
 	require.NoError(t, err)
@@ -21,13 +23,16 @@ func LoadImg(t *testing.T, path string) image.Image {
 	return img
 }
 
+// LoadImgToMat loads an image from a file to a matrix and fails the test if it does not succeed.
 func LoadImgToMat(t *testing.T, path string) *mat.Dense {
 	img := LoadImg(t, path)
 	gray := imutil.ToGray(img)
 	return imutil.ToMat(gray)
 }
 
+// LoadMat64Txt loads a float matrix from a txt file and fails the test if it does not succeed.
 func LoadMat64Txt(t *testing.T, path string) *mat.Dense {
+	// #nosec G304
 	data, err := os.ReadFile(path)
 	require.NoError(t, err)
 
@@ -53,6 +58,7 @@ func LoadMat64Txt(t *testing.T, path string) *mat.Dense {
 	return mat
 }
 
+// AssertMatEqual checks if two matrices are equal and fails the test if not.
 func AssertMatEqual(t *testing.T, expected, actual mat.Matrix) {
 	m, n := expected.Dims()
 	k, l := actual.Dims()
