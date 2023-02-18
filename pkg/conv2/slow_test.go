@@ -28,8 +28,8 @@ func Test_FullFillSlow(t *testing.T) {
 }
 
 func Benchmark_FullFillSlow_PP(b *testing.B) {
-	in0 := imutil.ToMat(imutil.Rand(531535, 20, 20))
-	in1 := imutil.ToMat(imutil.Rand(129038, 20, 20))
+	in0 := imutil.ToMat(imutil.Rand(531535, patchW, patchH))
+	in1 := imutil.ToMat(imutil.Rand(129038, patchW, patchH))
 
 	for i := 0; i < b.N; i++ {
 		FullFillSlow(in0, in1)
@@ -37,8 +37,8 @@ func Benchmark_FullFillSlow_PP(b *testing.B) {
 }
 
 func Benchmark_FullFillSlow_II(b *testing.B) {
-	in0 := imutil.ToMat(imutil.Rand(531535, 160, 120))
-	in1 := imutil.ToMat(imutil.Rand(129038, 160, 120))
+	in0 := imutil.ToMat(imutil.Rand(531535, imgW, imgH))
+	in1 := imutil.ToMat(imutil.Rand(129038, imgW, imgH))
 
 	for i := 0; i < b.N; i++ {
 		FullFillSlow(in0, in1)
@@ -46,8 +46,8 @@ func Benchmark_FullFillSlow_II(b *testing.B) {
 }
 
 func Benchmark_FullFillSlow_IP(b *testing.B) {
-	in0 := imutil.ToMat(imutil.Rand(340592732523, 160, 120))
-	in1 := imutil.ToMat(imutil.Rand(359287343422, 20, 20))
+	in0 := imutil.ToMat(imutil.Rand(340592732523, imgW, imgH))
+	in1 := imutil.ToMat(imutil.Rand(359287343422, patchW, patchH))
 
 	for i := 0; i < b.N; i++ {
 		FullFillSlow(in0, in1)
@@ -55,8 +55,8 @@ func Benchmark_FullFillSlow_IP(b *testing.B) {
 }
 
 func Benchmark_FullFillSlow_PI(b *testing.B) {
-	in0 := imutil.ToMat(imutil.Rand(340592732523, 160, 120))
-	in1 := imutil.ToMat(imutil.Rand(359287343422, 20, 20))
+	in0 := imutil.ToMat(imutil.Rand(340592732523, imgW, imgH))
+	in1 := imutil.ToMat(imutil.Rand(359287343422, patchW, patchH))
 
 	for i := 0; i < b.N; i++ {
 		FullFillSlow(in1, in0)
@@ -84,8 +84,8 @@ func Test_FullWrapSlow(t *testing.T) {
 }
 
 func Benchmark_FullWrapSlow_PP(b *testing.B) {
-	in0 := imutil.ToMat(imutil.Rand(531535, 20, 20))
-	in1 := imutil.ToMat(imutil.Rand(129038, 20, 20))
+	in0 := imutil.ToMat(imutil.Rand(531535, patchW, patchH))
+	in1 := imutil.ToMat(imutil.Rand(129038, patchW, patchH))
 
 	for i := 0; i < b.N; i++ {
 		FullWrapSlow(in0, in1)
@@ -93,8 +93,8 @@ func Benchmark_FullWrapSlow_PP(b *testing.B) {
 }
 
 func Benchmark_FullWrapSlow_II(b *testing.B) {
-	in0 := imutil.ToMat(imutil.Rand(531535, 160, 120))
-	in1 := imutil.ToMat(imutil.Rand(129038, 160, 120))
+	in0 := imutil.ToMat(imutil.Rand(531535, imgW, imgH))
+	in1 := imutil.ToMat(imutil.Rand(129038, imgW, imgH))
 
 	for i := 0; i < b.N; i++ {
 		FullWrapSlow(in0, in1)
@@ -102,8 +102,8 @@ func Benchmark_FullWrapSlow_II(b *testing.B) {
 }
 
 func Benchmark_FullWrapSlow_IP(b *testing.B) {
-	in0 := imutil.ToMat(imutil.Rand(340592732523, 160, 120))
-	in1 := imutil.ToMat(imutil.Rand(359287343422, 20, 20))
+	in0 := imutil.ToMat(imutil.Rand(340592732523, imgW, imgH))
+	in1 := imutil.ToMat(imutil.Rand(359287343422, patchW, patchH))
 
 	for i := 0; i < b.N; i++ {
 		FullWrapSlow(in0, in1)
@@ -111,8 +111,8 @@ func Benchmark_FullWrapSlow_IP(b *testing.B) {
 }
 
 func Benchmark_FullWrapSlow_PI(b *testing.B) {
-	in0 := imutil.ToMat(imutil.Rand(340592732523, 160, 120))
-	in1 := imutil.ToMat(imutil.Rand(359287343422, 20, 20))
+	in0 := imutil.ToMat(imutil.Rand(340592732523, imgW, imgH))
+	in1 := imutil.ToMat(imutil.Rand(359287343422, patchW, patchH))
 
 	for i := 0; i < b.N; i++ {
 		FullWrapSlow(in1, in0)
@@ -140,8 +140,8 @@ func Test_ValidFillSlow(t *testing.T) {
 }
 
 func Benchmark_ValidFillSlow_PP(b *testing.B) {
-	in0 := imutil.ToMat(imutil.Rand(531535, 20, 20))
-	in1 := imutil.ToMat(imutil.Rand(129038, 20, 20))
+	in0 := imutil.ToMat(imutil.Rand(531535, patchW, patchH))
+	in1 := imutil.ToMat(imutil.Rand(129038, patchW, patchH))
 
 	for i := 0; i < b.N; i++ {
 		ValidFillSlow(in0, in1)
@@ -149,8 +149,8 @@ func Benchmark_ValidFillSlow_PP(b *testing.B) {
 }
 
 func Benchmark_ValidFillSlow_II(b *testing.B) {
-	in0 := imutil.ToMat(imutil.Rand(531535, 160, 120))
-	in1 := imutil.ToMat(imutil.Rand(129038, 160, 120))
+	in0 := imutil.ToMat(imutil.Rand(531535, imgW, imgH))
+	in1 := imutil.ToMat(imutil.Rand(129038, imgW, imgH))
 
 	for i := 0; i < b.N; i++ {
 		ValidFillSlow(in0, in1)
@@ -158,8 +158,8 @@ func Benchmark_ValidFillSlow_II(b *testing.B) {
 }
 
 func Benchmark_ValidFillSlow_IP(b *testing.B) {
-	in0 := imutil.ToMat(imutil.Rand(340592732523, 160, 120))
-	in1 := imutil.ToMat(imutil.Rand(359287343422, 20, 20))
+	in0 := imutil.ToMat(imutil.Rand(340592732523, imgW, imgH))
+	in1 := imutil.ToMat(imutil.Rand(359287343422, patchW, patchH))
 
 	for i := 0; i < b.N; i++ {
 		ValidFillSlow(in0, in1)
@@ -167,8 +167,8 @@ func Benchmark_ValidFillSlow_IP(b *testing.B) {
 }
 
 func Benchmark_ValidFillSlow_PI(b *testing.B) {
-	in0 := imutil.ToMat(imutil.Rand(340592732523, 160, 120))
-	in1 := imutil.ToMat(imutil.Rand(359287343422, 20, 20))
+	in0 := imutil.ToMat(imutil.Rand(340592732523, imgW, imgH))
+	in1 := imutil.ToMat(imutil.Rand(359287343422, patchW, patchH))
 
 	for i := 0; i < b.N; i++ {
 		ValidFillSlow(in1, in0)
@@ -196,8 +196,8 @@ func Test_ValidWrapSlow(t *testing.T) {
 }
 
 func Benchmark_ValidWrapSlow_PP(b *testing.B) {
-	in0 := imutil.ToMat(imutil.Rand(531535, 20, 20))
-	in1 := imutil.ToMat(imutil.Rand(129038, 20, 20))
+	in0 := imutil.ToMat(imutil.Rand(531535, patchW, patchH))
+	in1 := imutil.ToMat(imutil.Rand(129038, patchW, patchH))
 
 	for i := 0; i < b.N; i++ {
 		ValidWrapSlow(in0, in1)
@@ -205,8 +205,8 @@ func Benchmark_ValidWrapSlow_PP(b *testing.B) {
 }
 
 func Benchmark_ValidWrapSlow_II(b *testing.B) {
-	in0 := imutil.ToMat(imutil.Rand(531535, 160, 120))
-	in1 := imutil.ToMat(imutil.Rand(129038, 160, 120))
+	in0 := imutil.ToMat(imutil.Rand(531535, imgW, imgH))
+	in1 := imutil.ToMat(imutil.Rand(129038, imgW, imgH))
 
 	for i := 0; i < b.N; i++ {
 		ValidWrapSlow(in0, in1)
@@ -214,8 +214,8 @@ func Benchmark_ValidWrapSlow_II(b *testing.B) {
 }
 
 func Benchmark_ValidWrapSlow_IP(b *testing.B) {
-	in0 := imutil.ToMat(imutil.Rand(340592732523, 160, 120))
-	in1 := imutil.ToMat(imutil.Rand(359287343422, 20, 20))
+	in0 := imutil.ToMat(imutil.Rand(340592732523, imgW, imgH))
+	in1 := imutil.ToMat(imutil.Rand(359287343422, patchW, patchH))
 
 	for i := 0; i < b.N; i++ {
 		ValidWrapSlow(in0, in1)
@@ -223,8 +223,8 @@ func Benchmark_ValidWrapSlow_IP(b *testing.B) {
 }
 
 func Benchmark_ValidWrapSlow_PI(b *testing.B) {
-	in0 := imutil.ToMat(imutil.Rand(340592732523, 160, 120))
-	in1 := imutil.ToMat(imutil.Rand(359287343422, 20, 20))
+	in0 := imutil.ToMat(imutil.Rand(340592732523, imgW, imgH))
+	in1 := imutil.ToMat(imutil.Rand(359287343422, patchW, patchH))
 
 	for i := 0; i < b.N; i++ {
 		ValidWrapSlow(in1, in0)
@@ -252,8 +252,8 @@ func Test_SameFillSlow(t *testing.T) {
 }
 
 func Benchmark_SameFillSlow_PP(b *testing.B) {
-	in0 := imutil.ToMat(imutil.Rand(531535, 20, 20))
-	in1 := imutil.ToMat(imutil.Rand(129038, 20, 20))
+	in0 := imutil.ToMat(imutil.Rand(531535, patchW, patchH))
+	in1 := imutil.ToMat(imutil.Rand(129038, patchW, patchH))
 
 	for i := 0; i < b.N; i++ {
 		SameFillSlow(in0, in1)
@@ -261,8 +261,8 @@ func Benchmark_SameFillSlow_PP(b *testing.B) {
 }
 
 func Benchmark_SameFillSlow_II(b *testing.B) {
-	in0 := imutil.ToMat(imutil.Rand(531535, 160, 120))
-	in1 := imutil.ToMat(imutil.Rand(129038, 160, 120))
+	in0 := imutil.ToMat(imutil.Rand(531535, imgW, imgH))
+	in1 := imutil.ToMat(imutil.Rand(129038, imgW, imgH))
 
 	for i := 0; i < b.N; i++ {
 		SameFillSlow(in0, in1)
@@ -270,8 +270,8 @@ func Benchmark_SameFillSlow_II(b *testing.B) {
 }
 
 func Benchmark_SameFillSlow_IP(b *testing.B) {
-	in0 := imutil.ToMat(imutil.Rand(340592732523, 160, 120))
-	in1 := imutil.ToMat(imutil.Rand(359287343422, 20, 20))
+	in0 := imutil.ToMat(imutil.Rand(340592732523, imgW, imgH))
+	in1 := imutil.ToMat(imutil.Rand(359287343422, patchW, patchH))
 
 	for i := 0; i < b.N; i++ {
 		SameFillSlow(in0, in1)
@@ -279,8 +279,8 @@ func Benchmark_SameFillSlow_IP(b *testing.B) {
 }
 
 func Benchmark_SameFillSlow_PI(b *testing.B) {
-	in0 := imutil.ToMat(imutil.Rand(340592732523, 160, 120))
-	in1 := imutil.ToMat(imutil.Rand(359287343422, 20, 20))
+	in0 := imutil.ToMat(imutil.Rand(340592732523, imgW, imgH))
+	in1 := imutil.ToMat(imutil.Rand(359287343422, patchW, patchH))
 
 	for i := 0; i < b.N; i++ {
 		SameFillSlow(in1, in0)
@@ -308,8 +308,8 @@ func Test_SameWrapSlow(t *testing.T) {
 }
 
 func Benchmark_SameWrapSlow_PP(b *testing.B) {
-	in0 := imutil.ToMat(imutil.Rand(531535, 20, 20))
-	in1 := imutil.ToMat(imutil.Rand(129038, 20, 20))
+	in0 := imutil.ToMat(imutil.Rand(531535, patchW, patchH))
+	in1 := imutil.ToMat(imutil.Rand(129038, patchW, patchH))
 
 	for i := 0; i < b.N; i++ {
 		SameWrapSlow(in0, in1)
@@ -317,8 +317,8 @@ func Benchmark_SameWrapSlow_PP(b *testing.B) {
 }
 
 func Benchmark_SameWrapSlow_II(b *testing.B) {
-	in0 := imutil.ToMat(imutil.Rand(531535, 160, 120))
-	in1 := imutil.ToMat(imutil.Rand(129038, 160, 120))
+	in0 := imutil.ToMat(imutil.Rand(531535, imgW, imgH))
+	in1 := imutil.ToMat(imutil.Rand(129038, imgW, imgH))
 
 	for i := 0; i < b.N; i++ {
 		SameWrapSlow(in0, in1)
@@ -326,8 +326,8 @@ func Benchmark_SameWrapSlow_II(b *testing.B) {
 }
 
 func Benchmark_SameWrapSlow_IP(b *testing.B) {
-	in0 := imutil.ToMat(imutil.Rand(340592732523, 160, 120))
-	in1 := imutil.ToMat(imutil.Rand(359287343422, 20, 20))
+	in0 := imutil.ToMat(imutil.Rand(340592732523, imgW, imgH))
+	in1 := imutil.ToMat(imutil.Rand(359287343422, patchW, patchH))
 
 	for i := 0; i < b.N; i++ {
 		SameWrapSlow(in0, in1)
@@ -335,8 +335,8 @@ func Benchmark_SameWrapSlow_IP(b *testing.B) {
 }
 
 func Benchmark_SameWrapSlow_PI(b *testing.B) {
-	in0 := imutil.ToMat(imutil.Rand(340592732523, 160, 120))
-	in1 := imutil.ToMat(imutil.Rand(359287343422, 20, 20))
+	in0 := imutil.ToMat(imutil.Rand(340592732523, imgW, imgH))
+	in1 := imutil.ToMat(imutil.Rand(359287343422, patchW, patchH))
 
 	for i := 0; i < b.N; i++ {
 		SameWrapSlow(in1, in0)

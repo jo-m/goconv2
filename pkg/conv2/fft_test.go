@@ -36,8 +36,8 @@ func Test_FullFFT(t *testing.T) {
 }
 
 func Benchmark_FullFFT_PP(b *testing.B) {
-	in0 := imutil.ToMat(imutil.Rand(531535, 20, 20))
-	in1 := imutil.ToMat(imutil.Rand(129038, 20, 20))
+	in0 := imutil.ToMat(imutil.Rand(531535, patchW, patchH))
+	in1 := imutil.ToMat(imutil.Rand(129038, patchW, patchH))
 
 	for i := 0; i < b.N; i++ {
 		FullFFT(in0, in1)
@@ -45,8 +45,8 @@ func Benchmark_FullFFT_PP(b *testing.B) {
 }
 
 func Benchmark_FullFFT_II(b *testing.B) {
-	in0 := imutil.ToMat(imutil.Rand(531535, 160, 120))
-	in1 := imutil.ToMat(imutil.Rand(129038, 160, 120))
+	in0 := imutil.ToMat(imutil.Rand(531535, imgW, imgH))
+	in1 := imutil.ToMat(imutil.Rand(129038, imgW, imgH))
 
 	for i := 0; i < b.N; i++ {
 		FullFFT(in0, in1)
@@ -54,8 +54,8 @@ func Benchmark_FullFFT_II(b *testing.B) {
 }
 
 func Benchmark_FullFFT_IP(b *testing.B) {
-	in0 := imutil.ToMat(imutil.Rand(340592732523, 160, 120))
-	in1 := imutil.ToMat(imutil.Rand(359287343422, 20, 20))
+	in0 := imutil.ToMat(imutil.Rand(340592732523, imgW, imgH))
+	in1 := imutil.ToMat(imutil.Rand(359287343422, patchW, patchH))
 
 	for i := 0; i < b.N; i++ {
 		FullFFT(in0, in1)

@@ -28,8 +28,8 @@ func Test_FullFillC(t *testing.T) {
 }
 
 func Benchmark_FullFillC_IP(b *testing.B) {
-	in0 := imutil.ToMat(imutil.Rand(340592732523, 160, 120))
-	in1 := imutil.ToMat(imutil.Rand(359287343422, 20, 20))
+	in0 := imutil.ToMat(imutil.Rand(340592732523, imgW, imgH))
+	in1 := imutil.ToMat(imutil.Rand(359287343422, patchW, patchH))
 
 	for i := 0; i < b.N; i++ {
 		FullFillC(in0, in1)
@@ -57,8 +57,8 @@ func Test_ValidFillC(t *testing.T) {
 }
 
 func Benchmark_ValidFillC_IP(b *testing.B) {
-	in0 := imutil.ToMat(imutil.Rand(340592732523, 160, 120))
-	in1 := imutil.ToMat(imutil.Rand(359287343422, 20, 20))
+	in0 := imutil.ToMat(imutil.Rand(340592732523, imgW, imgH))
+	in1 := imutil.ToMat(imutil.Rand(359287343422, patchW, patchH))
 
 	for i := 0; i < b.N; i++ {
 		ValidFillC(in0, in1)
