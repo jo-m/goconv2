@@ -27,6 +27,15 @@ func Test_FullFillOpt(t *testing.T) {
 	testutil.AssertMatEqual(t, truth, out)
 }
 
+func Benchmark_FullFillOpt_IP(b *testing.B) {
+	in0 := imutil.ToMat(imutil.Rand(340592732523, 160, 120))
+	in1 := imutil.ToMat(imutil.Rand(359287343422, 20, 20))
+
+	for i := 0; i < b.N; i++ {
+		FullFillOpt(in0, in1)
+	}
+}
+
 func Test_ValidFillOpt(t *testing.T) {
 	img, patch := loadImgAndPatch(t)
 
@@ -45,15 +54,6 @@ func Test_ValidFillOpt(t *testing.T) {
 	out = ValidFillOpt(patch, img)
 	truth = testutil.LoadMat64Txt(t, "testdata/gen/conv-pi-valid-fill.txt")
 	testutil.AssertMatEqual(t, truth, out)
-}
-
-func Benchmark_FullFillOpt_IP(b *testing.B) {
-	in0 := imutil.ToMat(imutil.Rand(340592732523, 160, 120))
-	in1 := imutil.ToMat(imutil.Rand(359287343422, 20, 20))
-
-	for i := 0; i < b.N; i++ {
-		FullFillOpt(in0, in1)
-	}
 }
 
 func Benchmark_ValidFillOpt_IP(b *testing.B) {

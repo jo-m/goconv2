@@ -44,7 +44,7 @@ func Benchmark_FullFFT_PP(b *testing.B) {
 	}
 }
 
-func Benchmark_FFull_II(b *testing.B) {
+func Benchmark_FullFFT_II(b *testing.B) {
 	in0 := imutil.ToMat(imutil.Rand(531535, 160, 120))
 	in1 := imutil.ToMat(imutil.Rand(129038, 160, 120))
 
@@ -53,7 +53,7 @@ func Benchmark_FFull_II(b *testing.B) {
 	}
 }
 
-func Benchmark_FFull_IP(b *testing.B) {
+func Benchmark_FullFFT_IP(b *testing.B) {
 	in0 := imutil.ToMat(imutil.Rand(340592732523, 160, 120))
 	in1 := imutil.ToMat(imutil.Rand(359287343422, 20, 20))
 
