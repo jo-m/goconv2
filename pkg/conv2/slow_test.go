@@ -7,338 +7,338 @@ import (
 	"github.com/jo-m/goconv2/internal/pkg/testutil"
 )
 
-func Test_FullFill(t *testing.T) {
+func Test_FullFillSlow(t *testing.T) {
 	img, patch := loadImgAndPatch(t)
 
-	out := FullFill(patch, patch)
+	out := FullFillSlow(patch, patch)
 	truth := testutil.LoadMat64Txt(t, "testdata/gen/conv-pp-full-fill.txt")
 	testutil.AssertMatEqual(t, truth, out)
 
-	out = FullFill(img, img)
+	out = FullFillSlow(img, img)
 	truth = testutil.LoadMat64Txt(t, "testdata/gen/conv-ii-full-fill.txt")
 	testutil.AssertMatEqual(t, truth, out)
 
-	out = FullFill(img, patch)
+	out = FullFillSlow(img, patch)
 	truth = testutil.LoadMat64Txt(t, "testdata/gen/conv-ip-full-fill.txt")
 	testutil.AssertMatEqual(t, truth, out)
 
-	out = FullFill(patch, img)
+	out = FullFillSlow(patch, img)
 	truth = testutil.LoadMat64Txt(t, "testdata/gen/conv-pi-full-fill.txt")
 	testutil.AssertMatEqual(t, truth, out)
 }
 
-func Benchmark_FullFill_PP(b *testing.B) {
+func Benchmark_FullFillSlow_PP(b *testing.B) {
 	in0 := imutil.ToMat(imutil.Rand(531535, 20, 20))
 	in1 := imutil.ToMat(imutil.Rand(129038, 20, 20))
 
 	for i := 0; i < b.N; i++ {
-		FFull(in0, in1)
+		FullFillSlow(in0, in1)
 	}
 }
 
-func Benchmark_FullFill_II(b *testing.B) {
+func Benchmark_FullFillSlow_II(b *testing.B) {
 	in0 := imutil.ToMat(imutil.Rand(531535, 160, 120))
 	in1 := imutil.ToMat(imutil.Rand(129038, 160, 120))
 
 	for i := 0; i < b.N; i++ {
-		FullFill(in0, in1)
+		FullFillSlow(in0, in1)
 	}
 }
 
-func Benchmark_FullFill_IP(b *testing.B) {
+func Benchmark_FullFillSlow_IP(b *testing.B) {
 	in0 := imutil.ToMat(imutil.Rand(340592732523, 160, 120))
 	in1 := imutil.ToMat(imutil.Rand(359287343422, 20, 20))
 
 	for i := 0; i < b.N; i++ {
-		FullFill(in0, in1)
+		FullFillSlow(in0, in1)
 	}
 }
 
-func Benchmark_FullFill_PI(b *testing.B) {
+func Benchmark_FullFillSlow_PI(b *testing.B) {
 	in0 := imutil.ToMat(imutil.Rand(340592732523, 160, 120))
 	in1 := imutil.ToMat(imutil.Rand(359287343422, 20, 20))
 
 	for i := 0; i < b.N; i++ {
-		FullFill(in1, in0)
+		FullFillSlow(in1, in0)
 	}
 }
 
-func Test_FullWrap(t *testing.T) {
+func Test_FullWrapSlow(t *testing.T) {
 	img, patch := loadImgAndPatch(t)
 
-	out := FullWrap(patch, patch)
+	out := FullWrapSlow(patch, patch)
 	truth := testutil.LoadMat64Txt(t, "testdata/gen/conv-pp-full-wrap.txt")
 	testutil.AssertMatEqual(t, truth, out)
 
-	out = FullWrap(img, img)
+	out = FullWrapSlow(img, img)
 	truth = testutil.LoadMat64Txt(t, "testdata/gen/conv-ii-full-wrap.txt")
 	testutil.AssertMatEqual(t, truth, out)
 
-	out = FullWrap(img, patch)
+	out = FullWrapSlow(img, patch)
 	truth = testutil.LoadMat64Txt(t, "testdata/gen/conv-ip-full-wrap.txt")
 	testutil.AssertMatEqual(t, truth, out)
 
-	out = FullWrap(patch, img)
+	out = FullWrapSlow(patch, img)
 	truth = testutil.LoadMat64Txt(t, "testdata/gen/conv-pi-full-wrap.txt")
 	testutil.AssertMatEqual(t, truth, out)
 }
 
-func Benchmark_FullWrap_PP(b *testing.B) {
+func Benchmark_FullWrapSlow_PP(b *testing.B) {
 	in0 := imutil.ToMat(imutil.Rand(531535, 20, 20))
 	in1 := imutil.ToMat(imutil.Rand(129038, 20, 20))
 
 	for i := 0; i < b.N; i++ {
-		FFull(in0, in1)
+		FullWrapSlow(in0, in1)
 	}
 }
 
-func Benchmark_FullWrap_II(b *testing.B) {
+func Benchmark_FullWrapSlow_II(b *testing.B) {
 	in0 := imutil.ToMat(imutil.Rand(531535, 160, 120))
 	in1 := imutil.ToMat(imutil.Rand(129038, 160, 120))
 
 	for i := 0; i < b.N; i++ {
-		FullWrap(in0, in1)
+		FullWrapSlow(in0, in1)
 	}
 }
 
-func Benchmark_FullWrap_IP(b *testing.B) {
+func Benchmark_FullWrapSlow_IP(b *testing.B) {
 	in0 := imutil.ToMat(imutil.Rand(340592732523, 160, 120))
 	in1 := imutil.ToMat(imutil.Rand(359287343422, 20, 20))
 
 	for i := 0; i < b.N; i++ {
-		FullWrap(in0, in1)
+		FullWrapSlow(in0, in1)
 	}
 }
 
-func Benchmark_FullWrap_PI(b *testing.B) {
+func Benchmark_FullWrapSlow_PI(b *testing.B) {
 	in0 := imutil.ToMat(imutil.Rand(340592732523, 160, 120))
 	in1 := imutil.ToMat(imutil.Rand(359287343422, 20, 20))
 
 	for i := 0; i < b.N; i++ {
-		FullWrap(in1, in0)
+		FullWrapSlow(in1, in0)
 	}
 }
 
-func Test_ValidFill(t *testing.T) {
+func Test_ValidFillSlow(t *testing.T) {
 	img, patch := loadImgAndPatch(t)
 
-	out := ValidFill(patch, patch)
+	out := ValidFillSlow(patch, patch)
 	truth := testutil.LoadMat64Txt(t, "testdata/gen/conv-pp-valid-fill.txt")
 	testutil.AssertMatEqual(t, truth, out)
 
-	out = ValidFill(img, img)
+	out = ValidFillSlow(img, img)
 	truth = testutil.LoadMat64Txt(t, "testdata/gen/conv-ii-valid-fill.txt")
 	testutil.AssertMatEqual(t, truth, out)
 
-	out = ValidFill(img, patch)
+	out = ValidFillSlow(img, patch)
 	truth = testutil.LoadMat64Txt(t, "testdata/gen/conv-ip-valid-fill.txt")
 	testutil.AssertMatEqual(t, truth, out)
 
-	out = ValidFill(patch, img)
+	out = ValidFillSlow(patch, img)
 	truth = testutil.LoadMat64Txt(t, "testdata/gen/conv-pi-valid-fill.txt")
 	testutil.AssertMatEqual(t, truth, out)
 }
 
-func Benchmark_ValidFill_PP(b *testing.B) {
+func Benchmark_ValidFillSlow_PP(b *testing.B) {
 	in0 := imutil.ToMat(imutil.Rand(531535, 20, 20))
 	in1 := imutil.ToMat(imutil.Rand(129038, 20, 20))
 
 	for i := 0; i < b.N; i++ {
-		FFull(in0, in1)
+		ValidFillSlow(in0, in1)
 	}
 }
 
-func Benchmark_ValidFill_II(b *testing.B) {
+func Benchmark_ValidFillSlow_II(b *testing.B) {
 	in0 := imutil.ToMat(imutil.Rand(531535, 160, 120))
 	in1 := imutil.ToMat(imutil.Rand(129038, 160, 120))
 
 	for i := 0; i < b.N; i++ {
-		ValidFill(in0, in1)
+		ValidFillSlow(in0, in1)
 	}
 }
 
-func Benchmark_ValidFill_IP(b *testing.B) {
+func Benchmark_ValidFillSlow_IP(b *testing.B) {
 	in0 := imutil.ToMat(imutil.Rand(340592732523, 160, 120))
 	in1 := imutil.ToMat(imutil.Rand(359287343422, 20, 20))
 
 	for i := 0; i < b.N; i++ {
-		ValidFill(in0, in1)
+		ValidFillSlow(in0, in1)
 	}
 }
 
-func Benchmark_ValidFill_PI(b *testing.B) {
+func Benchmark_ValidFillSlow_PI(b *testing.B) {
 	in0 := imutil.ToMat(imutil.Rand(340592732523, 160, 120))
 	in1 := imutil.ToMat(imutil.Rand(359287343422, 20, 20))
 
 	for i := 0; i < b.N; i++ {
-		ValidFill(in1, in0)
+		ValidFillSlow(in1, in0)
 	}
 }
 
-func Test_ValidWrap(t *testing.T) {
+func Test_ValidWrapSlow(t *testing.T) {
 	img, patch := loadImgAndPatch(t)
 
-	out := ValidWrap(patch, patch)
+	out := ValidWrapSlow(patch, patch)
 	truth := testutil.LoadMat64Txt(t, "testdata/gen/conv-pp-valid-wrap.txt")
 	testutil.AssertMatEqual(t, truth, out)
 
-	out = ValidWrap(img, img)
+	out = ValidWrapSlow(img, img)
 	truth = testutil.LoadMat64Txt(t, "testdata/gen/conv-ii-valid-wrap.txt")
 	testutil.AssertMatEqual(t, truth, out)
 
-	out = ValidWrap(img, patch)
+	out = ValidWrapSlow(img, patch)
 	truth = testutil.LoadMat64Txt(t, "testdata/gen/conv-ip-valid-wrap.txt")
 	testutil.AssertMatEqual(t, truth, out)
 
-	out = ValidWrap(patch, img)
+	out = ValidWrapSlow(patch, img)
 	truth = testutil.LoadMat64Txt(t, "testdata/gen/conv-pi-valid-wrap.txt")
 	testutil.AssertMatEqual(t, truth, out)
 }
 
-func Benchmark_ValidWrap_PP(b *testing.B) {
+func Benchmark_ValidWrapSlow_PP(b *testing.B) {
 	in0 := imutil.ToMat(imutil.Rand(531535, 20, 20))
 	in1 := imutil.ToMat(imutil.Rand(129038, 20, 20))
 
 	for i := 0; i < b.N; i++ {
-		FFull(in0, in1)
+		ValidWrapSlow(in0, in1)
 	}
 }
 
-func Benchmark_ValidWrap_II(b *testing.B) {
+func Benchmark_ValidWrapSlow_II(b *testing.B) {
 	in0 := imutil.ToMat(imutil.Rand(531535, 160, 120))
 	in1 := imutil.ToMat(imutil.Rand(129038, 160, 120))
 
 	for i := 0; i < b.N; i++ {
-		ValidWrap(in0, in1)
+		ValidWrapSlow(in0, in1)
 	}
 }
 
-func Benchmark_ValidWrap_IP(b *testing.B) {
+func Benchmark_ValidWrapSlow_IP(b *testing.B) {
 	in0 := imutil.ToMat(imutil.Rand(340592732523, 160, 120))
 	in1 := imutil.ToMat(imutil.Rand(359287343422, 20, 20))
 
 	for i := 0; i < b.N; i++ {
-		ValidWrap(in0, in1)
+		ValidWrapSlow(in0, in1)
 	}
 }
 
-func Benchmark_ValidWrap_PI(b *testing.B) {
+func Benchmark_ValidWrapSlow_PI(b *testing.B) {
 	in0 := imutil.ToMat(imutil.Rand(340592732523, 160, 120))
 	in1 := imutil.ToMat(imutil.Rand(359287343422, 20, 20))
 
 	for i := 0; i < b.N; i++ {
-		ValidWrap(in1, in0)
+		ValidWrapSlow(in1, in0)
 	}
 }
 
-func Test_SameFill(t *testing.T) {
+func Test_SameFillSlow(t *testing.T) {
 	img, patch := loadImgAndPatch(t)
 
-	out := SameFill(patch, patch)
+	out := SameFillSlow(patch, patch)
 	truth := testutil.LoadMat64Txt(t, "testdata/gen/conv-pp-same-fill.txt")
 	testutil.AssertMatEqual(t, truth, out)
 
-	out = SameFill(img, img)
+	out = SameFillSlow(img, img)
 	truth = testutil.LoadMat64Txt(t, "testdata/gen/conv-ii-same-fill.txt")
 	testutil.AssertMatEqual(t, truth, out)
 
-	out = SameFill(img, patch)
+	out = SameFillSlow(img, patch)
 	truth = testutil.LoadMat64Txt(t, "testdata/gen/conv-ip-same-fill.txt")
 	testutil.AssertMatEqual(t, truth, out)
 
-	out = SameFill(patch, img)
+	out = SameFillSlow(patch, img)
 	truth = testutil.LoadMat64Txt(t, "testdata/gen/conv-pi-same-fill.txt")
 	testutil.AssertMatEqual(t, truth, out)
 }
 
-func Benchmark_SameFill_PP(b *testing.B) {
+func Benchmark_SameFillSlow_PP(b *testing.B) {
 	in0 := imutil.ToMat(imutil.Rand(531535, 20, 20))
 	in1 := imutil.ToMat(imutil.Rand(129038, 20, 20))
 
 	for i := 0; i < b.N; i++ {
-		FFull(in0, in1)
+		SameFillSlow(in0, in1)
 	}
 }
 
-func Benchmark_SameFill_II(b *testing.B) {
+func Benchmark_SameFillSlow_II(b *testing.B) {
 	in0 := imutil.ToMat(imutil.Rand(531535, 160, 120))
 	in1 := imutil.ToMat(imutil.Rand(129038, 160, 120))
 
 	for i := 0; i < b.N; i++ {
-		SameFill(in0, in1)
+		SameFillSlow(in0, in1)
 	}
 }
 
-func Benchmark_SameFill_IP(b *testing.B) {
+func Benchmark_SameFillSlow_IP(b *testing.B) {
 	in0 := imutil.ToMat(imutil.Rand(340592732523, 160, 120))
 	in1 := imutil.ToMat(imutil.Rand(359287343422, 20, 20))
 
 	for i := 0; i < b.N; i++ {
-		SameFill(in0, in1)
+		SameFillSlow(in0, in1)
 	}
 }
 
-func Benchmark_SameFill_PI(b *testing.B) {
+func Benchmark_SameFillSlow_PI(b *testing.B) {
 	in0 := imutil.ToMat(imutil.Rand(340592732523, 160, 120))
 	in1 := imutil.ToMat(imutil.Rand(359287343422, 20, 20))
 
 	for i := 0; i < b.N; i++ {
-		SameFill(in1, in0)
+		SameFillSlow(in1, in0)
 	}
 }
 
-func Test_SameWrap(t *testing.T) {
+func Test_SameWrapSlow(t *testing.T) {
 	img, patch := loadImgAndPatch(t)
 
-	out := SameWrap(patch, patch)
+	out := SameWrapSlow(patch, patch)
 	truth := testutil.LoadMat64Txt(t, "testdata/gen/conv-pp-same-wrap.txt")
 	testutil.AssertMatEqual(t, truth, out)
 
-	out = SameWrap(img, img)
+	out = SameWrapSlow(img, img)
 	truth = testutil.LoadMat64Txt(t, "testdata/gen/conv-ii-same-wrap.txt")
 	testutil.AssertMatEqual(t, truth, out)
 
-	out = SameWrap(img, patch)
+	out = SameWrapSlow(img, patch)
 	truth = testutil.LoadMat64Txt(t, "testdata/gen/conv-ip-same-wrap.txt")
 	testutil.AssertMatEqual(t, truth, out)
 
-	out = SameWrap(patch, img)
+	out = SameWrapSlow(patch, img)
 	truth = testutil.LoadMat64Txt(t, "testdata/gen/conv-pi-same-wrap.txt")
 	testutil.AssertMatEqual(t, truth, out)
 }
 
-func Benchmark_SameWrap_PP(b *testing.B) {
+func Benchmark_SameWrapSlow_PP(b *testing.B) {
 	in0 := imutil.ToMat(imutil.Rand(531535, 20, 20))
 	in1 := imutil.ToMat(imutil.Rand(129038, 20, 20))
 
 	for i := 0; i < b.N; i++ {
-		FFull(in0, in1)
+		SameWrapSlow(in0, in1)
 	}
 }
 
-func Benchmark_SameWrap_II(b *testing.B) {
+func Benchmark_SameWrapSlow_II(b *testing.B) {
 	in0 := imutil.ToMat(imutil.Rand(531535, 160, 120))
 	in1 := imutil.ToMat(imutil.Rand(129038, 160, 120))
 
 	for i := 0; i < b.N; i++ {
-		SameWrap(in0, in1)
+		SameWrapSlow(in0, in1)
 	}
 }
 
-func Benchmark_SameWrap_IP(b *testing.B) {
+func Benchmark_SameWrapSlow_IP(b *testing.B) {
 	in0 := imutil.ToMat(imutil.Rand(340592732523, 160, 120))
 	in1 := imutil.ToMat(imutil.Rand(359287343422, 20, 20))
 
 	for i := 0; i < b.N; i++ {
-		SameWrap(in0, in1)
+		SameWrapSlow(in0, in1)
 	}
 }
 
-func Benchmark_SameWrap_PI(b *testing.B) {
+func Benchmark_SameWrapSlow_PI(b *testing.B) {
 	in0 := imutil.ToMat(imutil.Rand(340592732523, 160, 120))
 	in1 := imutil.ToMat(imutil.Rand(359287343422, 20, 20))
 
 	for i := 0; i < b.N; i++ {
-		SameWrap(in1, in0)
+		SameWrapSlow(in1, in0)
 	}
 }

@@ -4,12 +4,12 @@ import (
 	"gonum.org/v1/gonum/mat"
 )
 
-// FullFill returns the 2-dimensional convolution of f and g.
+// FullFillSlow returns the 2-dimensional convolution of f and g.
 //
 // Naive Go implementation, slow.
 // It is equivalent to scipy.signal.convolve2d(f, g, mode="full", boundary="fill", fillvalue=0).
 // See https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.convolve2d.html.
-func FullFill(f, g *mat.Dense) *mat.Dense {
+func FullFillSlow(f, g *mat.Dense) *mat.Dense {
 	dy, dx := f.Dims()
 	dv, du := g.Dims()
 
@@ -36,12 +36,12 @@ func FullFill(f, g *mat.Dense) *mat.Dense {
 	return out
 }
 
-// FullWrap returns the 2-dimensional convolution of f and g.
+// FullWrapSlow returns the 2-dimensional convolution of f and g.
 //
 // Naive Go implementation, slow.
 // It is equivalent to scipy.signal.convolve2d(f, g, mode="full", boundary="wrap", fillvalue=0).
 // See https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.convolve2d.html.
-func FullWrap(f, g *mat.Dense) *mat.Dense {
+func FullWrapSlow(f, g *mat.Dense) *mat.Dense {
 	dy, dx := f.Dims()
 	dv, du := g.Dims()
 
@@ -65,12 +65,12 @@ func FullWrap(f, g *mat.Dense) *mat.Dense {
 	return out
 }
 
-// ValidFill returns the 2-dimensional convolution of f and g.
+// ValidFillSlow returns the 2-dimensional convolution of f and g.
 //
 // Naive Go implementation, slow.
 // It is equivalent to scipy.signal.convolve2d(f, g, mode="valid", boundary="fill", fillvalue=0).
 // See https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.convolve2d.html.
-func ValidFill(f, g *mat.Dense) *mat.Dense {
+func ValidFillSlow(f, g *mat.Dense) *mat.Dense {
 	// make sure f is always larger than g
 	if g.RawMatrix().Cols > f.RawMatrix().Cols {
 		f, g = g, f
@@ -102,21 +102,21 @@ func ValidFill(f, g *mat.Dense) *mat.Dense {
 	return out
 }
 
-// ValidWrap returns the 2-dimensional convolution of f and g.
+// ValidWrapSlow returns the 2-dimensional convolution of f and g.
 //
 // Naive Go implementation, slow.
 // It is equivalent to scipy.signal.convolve2d(f, g, mode="valid", boundary="wrap", fillvalue=0).
 // See https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.convolve2d.html.
-func ValidWrap(f, g *mat.Dense) *mat.Dense {
-	return ValidFill(f, g)
+func ValidWrapSlow(f, g *mat.Dense) *mat.Dense {
+	return ValidFillSlow(f, g)
 }
 
-// SameFill returns the 2-dimensional convolution of f and g.
+// SameFillSlow returns the 2-dimensional convolution of f and g.
 //
 // Naive Go implementation, slow.
 // It is equivalent to scipy.signal.convolve2d(f, g, mode="same", boundary="fill", fillvalue=0).
 // See https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.convolve2d.html.
-func SameFill(f, g *mat.Dense) *mat.Dense {
+func SameFillSlow(f, g *mat.Dense) *mat.Dense {
 	dy, dx := f.Dims()
 	dv, du := g.Dims()
 
@@ -146,12 +146,12 @@ func SameFill(f, g *mat.Dense) *mat.Dense {
 	return out
 }
 
-// SameWrap returns the 2-dimensional convolution of f and g.
+// SameWrapSlow returns the 2-dimensional convolution of f and g.
 //
 // Naive Go implementation, slow.
 // It is equivalent to scipy.signal.convolve2d(f, g, mode="same", boundary="wrap", fillvalue=0).
 // See https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.convolve2d.html.
-func SameWrap(f, g *mat.Dense) *mat.Dense {
+func SameWrapSlow(f, g *mat.Dense) *mat.Dense {
 	dy, dx := f.Dims()
 	dv, du := g.Dims()
 
