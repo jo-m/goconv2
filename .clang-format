@@ -1,0 +1,5 @@
+---
+Language:            Cpp
+BasedOnStyle:        Google
+BreakStringLiterals: false
+ColumnLimit:         120
