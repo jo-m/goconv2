@@ -2,6 +2,9 @@
 
 void FullFillC(int dy, int dx, int dv, int du, int n, int m, int fs, int gs, int outs, float64 *fd, float64 *gd,
                float64 *outd) {
+#ifdef _OPENMP
+#pragma omp parallel for collapse(2)
+#endif
   for (int y = 0; y < m; y++) {
     for (int x = 0; x < n; x++) {
       float64 sum = 0;
@@ -22,6 +25,9 @@ void FullFillC(int dy, int dx, int dv, int du, int n, int m, int fs, int gs, int
 }
 
 void ValidFillC(int dv, int du, int n, int m, int fs, int gs, int outs, float64 *fd, float64 *gd, float64 *outd) {
+#ifdef _OPENMP
+#pragma omp parallel for collapse(2)
+#endif
   for (int y = 0; y < m; y++) {
     for (int x = 0; x < n; x++) {
       float64 sum = 0;

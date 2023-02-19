@@ -1,14 +1,30 @@
 package conv2
 
-// Optimization flags: see
+// The flags chosen below optimize for the following platforms:
+// - amd64: compiler host, with OpenMP
+// - arm: Raspberry Pi Zero (W)
+// - arm64: Raspberry Pi 4
+//
+// To show the flags which -march=native would produce, run
+//
+// 	gcc -march=native -E -v - </dev/null 2>&1 | grep cc1
+//
+// For more details, see
+// - https://gist.github.com/fm4dd/c663217935dc17f0fc73c9c81b0aa845
 // - https://gcc.gnu.org/onlinedocs/gcc/x86-Options.html
-// - https://gcc.gnu.org/onlinedocs/gcc/ARM-Options.html#ARM-Options
-// - https://gcc.gnu.org/onlinedocs/gcc/AArch64-Options.html#AArch64-Options
+// - https://gcc.gnu.org/onlinedocs/gcc/ARM-Options.html
+// - https://gcc.gnu.org/onlinedocs/gcc/AArch64-Options.html
 
-// #cgo CFLAGS: -O3
-// #cgo amd64 CFLAGS: -march=skylake -mtune=skylake
-// #cgo arm CFLAGS: -mcpu=cortex-a53 -mfpu=neon-vfpv4 -mtune=cortex-a53
-// #cgo arm64 CFLAGS: -march=armv8-a+crc -mcpu=cortex-a72 -mtune=cortex-a72
+// #cgo CFLAGS: -Wall -Werror -Wextra -pedantic -std=c99
+// #cgo CFLAGS: -O2
+//
+// #cgo amd64 CFLAGS: -march=native
+// #cgo amd64 CFLAGS: -fopenmp
+// #cgo amd64 LDFLAGS: -fopenmp
+//
+// #cgo arm CFLAGS: -mfloat-abi=hard -mfpu=vfp -marm -march=armv6kz+fp
+//
+// #cgo arm64 CFLAGS: -mcpu=cortex-a72 -mtune=cortex-a72
 // #include "cconv.h"
 import "C"
 
