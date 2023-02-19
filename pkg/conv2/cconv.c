@@ -21,8 +21,7 @@ void FullFillC(int dy, int dx, int dv, int du, int n, int m, int fs, int gs, int
   }
 }
 
-void ValidFillC(int dy, int dx, int dv, int du, int n, int m, int fs, int gs, int outs, float64 *fd, float64 *gd,
-                float64 *outd) {
+void ValidFillC(int dv, int du, int n, int m, int fs, int gs, int outs, float64 *fd, float64 *gd, float64 *outd) {
   for (int y = 0; y < m; y++) {
     for (int x = 0; x < n; x++) {
       float64 sum = 0;

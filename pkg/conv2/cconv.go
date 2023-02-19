@@ -75,8 +75,6 @@ func ValidFillC(f, g *mat.Dense) *mat.Dense {
 	outd, outs := out.RawMatrix().Data, out.RawMatrix().Stride
 
 	C.ValidFillC(
-		C.int(dy),
-		C.int(dx),
 		C.int(dv),
 		C.int(du),
 		C.int(n),
