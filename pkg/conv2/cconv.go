@@ -1,7 +1,7 @@
 package conv2
 
 // The flags chosen below optimize for the following platforms:
-// - amd64: compiler host, with OpenMP
+// - amd64: Compiler host
 // - arm: Raspberry Pi Zero (W)
 // - arm64: Raspberry Pi 4
 //
@@ -25,6 +25,9 @@ package conv2
 // #cgo arm CFLAGS: -mfloat-abi=hard -mfpu=vfp -marm -march=armv6kz+fp
 //
 // #cgo arm64 CFLAGS: -mcpu=cortex-a72 -mtune=cortex-a72
+// #cgo arm64 CFLAGS: -fopenmp
+// #cgo arm64 LDFLAGS: -fopenmp
+//
 // #include "cconv.h"
 import "C"
 
